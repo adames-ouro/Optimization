@@ -68,9 +68,8 @@ The central component of the Q-learning algorithm is the Q-function. It's denote
 
 The Q-function is updated using the Bellman equation:
 
-$\begin{equation}
-Q(s, a) = r + \gamma \max_{a'} Q(s', a')
-\end{equation}$
+![Q-learning formula](https://latex.codecogs.com/svg.latex?\color{white}Q(s,%20a)%20=%20r%20+%20\gamma%20\max_{a'}%20Q(s',%20a'))
+
 
 Where:
 
