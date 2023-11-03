@@ -6,39 +6,42 @@
 In the Traveling Salesman Problem (TSP), we have a set of cities, and the distances between each pair of cities are known. The problem is to find the shortest possible route that visits each city exactly once and returns to the starting city (often referred to as the depot).
 
 ---
-### TSP formulation: 
+### TSP formulation:
 
-N = # number of cities to visit ( 0 represents depot )
+**N** = Number of cities to visit (0 represents the depot)
 
-I = set of cities = {0,...,N}
+**I** = Set of cities = {0,...,N}
 
-K = set of cities excluding depot = {1,...,N}
+**K** = Set of cities excluding depot = {1,...,N}
 
-$v_{i} = $ each city i visited in order excluding depot.
+![v_i formula](https://img.shields.io/badge/v_i-%20each%20city%20i%20visited%20in%20order%20excluding%20depot-white)
 
-$d_{ij} = $ distance between city i to city j.
+![d_ij formula](https://img.shields.io/badge/d_{ij}-%20distance%20between%20city%20i%20to%20city%20j-white)
 
-$X_{ij} $ $ = 1 $ if city j is visited from city i.
+![X_ij formula](https://img.shields.io/badge/X_{ij}-=1%20if%20city%20j%20is%20visited%20from%20city%20i-white)
 
-MIN $ Z = \sum_{i=0}^n \sum_{j=0}^n {d_{ij} * X_{ij}}$
+![Objective function](https://img.shields.io/badge/Minimize%20Z-%5Csum_%7Bi=0%7D%5E%7Bn%7D%20%5Csum_%7Bj=0%7D%5E%7Bn%7D%20d_{ij}%20*%20X_{ij}-white)
 
-subject to:
-    
-1)  reach every city from exactly one predecessor
+**Subject to**:
 
-    $\sum_{i=0}^n {X_{ij}} = 1 $ $\forall j$ $\in$ I
+1. Reach every city from exactly one predecessor:
 
-2)  leave every city to exactly one succesor
+   ![Constraint 1](https://img.shields.io/badge/%5Csum_%7Bi=0%7D%5E%7Bn%7D%20X_{ij}-%201%20%5Cforall%20j%20%5Cin%20I-white)
 
-    $\sum_{j=0}^n {X_{ij}} = 1 $ $\forall i$ $\in$ I
+2. Leave every city to exactly one successor:
 
-3) subtour elimination
+   ![Constraint 2](https://img.shields.io/badge/%5Csum_%7Bj=0%7D%5E%7Bn%7D%20X_{ij}-%201%20%5Cforall%20i%20%5Cin%20I-white)
 
-    $ (N - 1)*(1 - X_{ij}) $ $ \geq $ $ v_{i}  - v_{j} + 1  $   $\forall i, j$ $\in$ K
+3. Subtour elimination:
 
-4) variable types: x as binary, v as integer
+   ![Constraint 3](https://img.shields.io/badge/%20(N%20-%201)*(1%20-%20X_{ij})%20%5Cgeq%20v_{i}%20%20-%20v_{j}%20%2B%201%20%20%5Cforall%20i,%20j%20%5Cin%20K-white)
 
-    $ X_{ij} $ $\in$ {0,1} ,  $ v_{i} $ $\in$ { 0, ... , N - 1 }
+4. Variable types: x as binary, v as integer:
+
+   ![Variable type 1](https://img.shields.io/badge/X_{ij}%20%5Cin%20%7B0,1%7D-white)
+
+   ![Variable type 2](https://img.shields.io/badge/v_{i}%20%5Cin%20%7B0,..,N-1%7D-white)
+
 ---
 
 ## Q-learning in Reinforcement Learning for TSP
