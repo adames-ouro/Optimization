@@ -9,39 +9,50 @@ In the Traveling Salesman Problem (TSP), we have a set of cities, and the distan
 ### Formulas used:
 
 - **Number of cities to visit (0 represents the depot)**: 
-    ![N Formula](https://latex.codecogs.com/svg.latex?\color{white}N)
+
+![N Formula](https://latex.codecogs.com/svg.latex?\color{white}N)
 
 - **Set of cities**:
-    ![I Formula](https://latex.codecogs.com/svg.latex?\color{white}I%20=%20\{0,...,N\})
+
+![I Formula](https://latex.codecogs.com/svg.latex?\color{white}I%20=%20\{0,...,N\})
 
 - **Set of cities excluding depot**:
-    ![K Formula](https://latex.codecogs.com/svg.latex?\color{white}K%20=%20\{1,...,N\})
+
+![K Formula](https://latex.codecogs.com/svg.latex?\color{white}K%20=%20\{1,...,N\})
 
 - **Each city i visited in order excluding depot**:
-    ![v_i Formula](https://latex.codecogs.com/svg.latex?\color{white}v_{i})
+
+![v_i Formula](https://latex.codecogs.com/svg.latex?\color{white}v_{i})
 
 - **Distance between city i to city j**:
-    ![d_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}d_{ij})
+
+![d_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}d_{ij})
 
 - **Binary decision variable for city transition**:
-    ![X_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20=%201%20\text{if%20city%20j%20is%20visited%20from%20city%20i})
+
+![X_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20=%201%20\text{if%20city%20j%20is%20visited%20from%20city%20i})
 
 - **Objective function for TSP**:
-    ![Objective function](https://latex.codecogs.com/svg.latex?\color{white}Z%20=%20\sum_{i=0}^{n}%20\sum_{j=0}^{n}%20d_{ij}%20*%20X_{ij})
+
+![Objective function](https://latex.codecogs.com/svg.latex?\color{white}Z%20=%20\sum_{i=0}^{n}%20\sum_{j=0}^{n}%20d_{ij}%20*%20X_{ij})
 
 - **Reach every city from exactly one predecessor**:
-    ![Constraint 1](https://latex.codecogs.com/svg.latex?\color{white}\sum_{i=0}^{n}%20X_{ij}%20=%201%20\forall%20j%20\in%20I)
+
+![Constraint 1](https://latex.codecogs.com/svg.latex?\color{white}\sum_{i=0}^{n}%20X_{ij}%20=%201%20\forall%20j%20\in%20I)
 
 - **Leave every city to exactly one successor**:
-    ![Constraint 2](https://latex.codecogs.com/svg.latex?\color{white}\sum_{j=0}^{n}%20X_{ij}%20=%201%20\forall%20i%20\in%20I)
+
+![Constraint 2](https://latex.codecogs.com/svg.latex?\color{white}\sum_{j=0}^{n}%20X_{ij}%20=%201%20\forall%20i%20\in%20I)
 
 - **Subtour elimination**:
-    ![Constraint 3](https://latex.codecogs.com/svg.latex?\color{white}(N%20-%201)(1%20-%20X_{ij})%20\geq%20v_{i}%20-%20v_{j}%20+%201%20\forall%20i,%20j%20\in%20K)
+
+![Constraint 3](https://latex.codecogs.com/svg.latex?\color{white}(N%20-%201)(1%20-%20X_{ij})%20\geq%20v_{i}%20-%20v_{j}%20+%201%20\forall%20i,%20j%20\in%20K)
 
 - **Variable types for X and v**:
-    ![Variable type 1](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20\in%20\{0,1\})
-    ![Variable type 2](https://latex.codecogs.com/svg.latex?\color{white}v_{i}%20\in%20\{0,...,N-1\})
 
+![Variable type 1](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20\in%20\{0,1\})
+
+![Variable type 2](https://latex.codecogs.com/svg.latex?\color{white}v_{i}%20\in%20\{0,...,N-1\})
 
 ---
 
