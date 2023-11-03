@@ -6,41 +6,42 @@
 In the Traveling Salesman Problem (TSP), we have a set of cities, and the distances between each pair of cities are known. The problem is to find the shortest possible route that visits each city exactly once and returns to the starting city (often referred to as the depot).
 
 ---
-### TSP formulation:
+### Formulas used:
 
-**N** = Number of cities to visit (0 represents the depot)
+- **Number of cities to visit (0 represents the depot)**: 
+    ![N Formula](https://latex.codecogs.com/svg.latex?\color{white}N)
 
-**I** = Set of cities = {0,...,N}
+- **Set of cities**:
+    ![I Formula](https://latex.codecogs.com/svg.latex?\color{white}I%20=%20\{0,...,N\})
 
-**K** = Set of cities excluding depot = {1,...,N}
+- **Set of cities excluding depot**:
+    ![K Formula](https://latex.codecogs.com/svg.latex?\color{white}K%20=%20\{1,...,N\})
 
-![v_i formula](https://img.shields.io/badge/v_i-%20each%20city%20i%20visited%20in%20order%20excluding%20depot-white)
+- **Each city i visited in order excluding depot**:
+    ![v_i Formula](https://latex.codecogs.com/svg.latex?\color{white}v_{i})
 
-![d_ij formula](https://img.shields.io/badge/d_{ij}-%20distance%20between%20city%20i%20to%20city%20j-white)
+- **Distance between city i to city j**:
+    ![d_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}d_{ij})
 
-![X_ij formula](https://img.shields.io/badge/X_{ij}-=1%20if%20city%20j%20is%20visited%20from%20city%20i-white)
+- **Binary decision variable for city transition**:
+    ![X_ij Formula](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20=%201%20\text{if%20city%20j%20is%20visited%20from%20city%20i})
 
-![Objective function](https://img.shields.io/badge/Minimize%20Z-%5Csum_%7Bi=0%7D%5E%7Bn%7D%20%5Csum_%7Bj=0%7D%5E%7Bn%7D%20d_{ij}%20*%20X_{ij}-white)
+- **Objective function for TSP**:
+    ![Objective function](https://latex.codecogs.com/svg.latex?\color{white}Z%20=%20\sum_{i=0}^{n}%20\sum_{j=0}^{n}%20d_{ij}%20*%20X_{ij})
 
-**Subject to**:
+- **Reach every city from exactly one predecessor**:
+    ![Constraint 1](https://latex.codecogs.com/svg.latex?\color{white}\sum_{i=0}^{n}%20X_{ij}%20=%201%20\forall%20j%20\in%20I)
 
-1. Reach every city from exactly one predecessor:
+- **Leave every city to exactly one successor**:
+    ![Constraint 2](https://latex.codecogs.com/svg.latex?\color{white}\sum_{j=0}^{n}%20X_{ij}%20=%201%20\forall%20i%20\in%20I)
 
-   ![Constraint 1](https://img.shields.io/badge/%5Csum_%7Bi=0%7D%5E%7Bn%7D%20X_{ij}-%201%20%5Cforall%20j%20%5Cin%20I-white)
+- **Subtour elimination**:
+    ![Constraint 3](https://latex.codecogs.com/svg.latex?\color{white}(N%20-%201)(1%20-%20X_{ij})%20\geq%20v_{i}%20-%20v_{j}%20+%201%20\forall%20i,%20j%20\in%20K)
 
-2. Leave every city to exactly one successor:
+- **Variable types for X and v**:
+    ![Variable type 1](https://latex.codecogs.com/svg.latex?\color{white}X_{ij}%20\in%20\{0,1\})
+    ![Variable type 2](https://latex.codecogs.com/svg.latex?\color{white}v_{i}%20\in%20\{0,...,N-1\})
 
-   ![Constraint 2](https://img.shields.io/badge/%5Csum_%7Bj=0%7D%5E%7Bn%7D%20X_{ij}-%201%20%5Cforall%20i%20%5Cin%20I-white)
-
-3. Subtour elimination:
-
-   ![Constraint 3](https://img.shields.io/badge/%20(N%20-%201)*(1%20-%20X_{ij})%20%5Cgeq%20v_{i}%20%20-%20v_{j}%20%2B%201%20%20%5Cforall%20i,%20j%20%5Cin%20K-white)
-
-4. Variable types: x as binary, v as integer:
-
-   ![Variable type 1](https://img.shields.io/badge/X_{ij}%20%5Cin%20%7B0,1%7D-white)
-
-   ![Variable type 2](https://img.shields.io/badge/v_{i}%20%5Cin%20%7B0,..,N-1%7D-white)
 
 ---
 
